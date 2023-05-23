@@ -30,7 +30,7 @@ void loop()
     return;
   }
   
-  Serial.print("UID tag :");
+  Serial.print("UID: ");
   String content= "";
   for (byte i = 0; i < mfrc522.uid.size; i++) 
   {
@@ -40,6 +40,7 @@ void loop()
      content.concat(String(mfrc522.uid.uidByte[i], HEX));
   }
   content.toUpperCase();
+  Serial.println();
   if (content.substring(1) == "9F 11 CB 28")
   {
     Serial.println("Access");
@@ -49,7 +50,7 @@ void loop()
     digitalWrite(RELAY, LOW);
   }
  else   {
-    Serial.println("Access denied");
+    Serial.println("Denied");
     delay(denied);
   }
 }

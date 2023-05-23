@@ -103,7 +103,7 @@ void loop() {
   if(matchFace == true && active == false)
   {
     active = true;
-    Serial.println("Authorized access");
+    Serial.println("Access");
     digitalWrite(RELAY, HIGH);
     delay(ACCESS_DELAY);
     digitalWrite(RELAY, LOW);
@@ -113,7 +113,7 @@ void loop() {
   }
   else
   {
-    Serial.println("Access denied");
+    Serial.println("Denied");
     delay(DENIED_DELAY);
   }
   delay(2000);
